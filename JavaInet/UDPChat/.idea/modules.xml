@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HttpClient/HttpClient.iml" filepath="$PROJECT_DIR$/HttpClient/HttpClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProxyDemo/ProxyDemo.iml" filepath="$PROJECT_DIR$/ProxyDemo/ProxyDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UDPChat.iml" filepath="$PROJECT_DIR$/UDPChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WLANChat/WLANChat.iml" filepath="$PROJECT_DIR$/WLANChat/WLANChat.iml" />
+    </modules>
+  </component>
+</project>

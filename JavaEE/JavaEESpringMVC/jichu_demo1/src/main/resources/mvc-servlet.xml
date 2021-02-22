@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <context:component-scan base-package="ziy.controller"></context:component-scan>
+    <mvc:annotation-driven/>
+    <!-- 处理静态资源 -->
+
+    <!-- 测试UrlBasedViewResolver -->
+    <bean id="jspResolver" class="ziy.viewresolver.JspViewResolver"
+          p:viewClass="org.springframework.web.servlet.view.InternalResourceView"
+          p:prefix="/WEB-INF/"
+          p:suffix=".jsp"
+          p:exposePathVariables="true"
+          p:exposeContextBeansAsAttributes="true"
+          p:exposedContextBeanNames="now,message">
+    </bean>
+    <bean id="now" class="java.util.Date"></bean>
+    <bean id="message" class="java.lang.String" c:_0="message_Bean"></bean>
+
+    <bean id="loginService" class="ziy.service.impl.LoginServiceImpl"></bean>
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="viewResolvers">
+            <list>
+                <bean class="ziy.viewresolver.JsonViewResolver"></bean>
+                <ref bean="jspResolver"></ref>
+            </list>
+        </property>
+    </bean>
+</beans>

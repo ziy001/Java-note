@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+
+    <!-- 新增一个Servlet声明 -->
+    <servlet>
+        <!-- Servlet名称 -->
+        <servlet-name>demo1</servlet-name>
+        <!-- 访问的class文件的全限定名称 -->
+        <servlet-class>org.ziyServlet.web.HelloMyServlet</servlet-class>
+    </servlet>
+    <!-- 添加servlet的映射 -->
+    <servlet-mapping>
+        <!-- 指定的Servlet容器名称 -->
+        <servlet-name>demo1</servlet-name>
+        <!-- 通过指定的URL访问该资源 -->
+        <url-pattern>/ziy</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <!-- Servlet容器 -->
+        <servlet-name>demo2</servlet-name>
+        <!-- 容器对应类 -->
+        <servlet-class>org.ziyServlet.web.HttpServletDemo2</servlet-class>
+        <!-- 定义一个初始化参数 -->
+        <init-param>
+            <param-name>greeting</param-name>
+            <param-value>Welcome</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <!-- 映射的容器名 -->
+        <servlet-name>demo2</servlet-name>
+        <!-- 注意： 这里值是提交表单的action值 -->
+        <!--URL的定义-->
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>demo3</servlet-name>
+        <servlet-class>org.ziyServlet.web.ServerContextDemo3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo3</servlet-name>
+        <url-pattern>/demo3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>demo4</servlet-name>
+        <servlet-class>org.ziyServlet.web.LoginDemo4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo4</servlet-name>
+        <url-pattern>/demo4</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>demo5</servlet-name>
+        <servlet-class>org.ziyServlet.web.RedirectDemo5</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo5</servlet-name>
+        <url-pattern>/demo5</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>forward</servlet-name>
+        <servlet-class>org.ziyServlet.web.Forward</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>forward</servlet-name>
+        <url-pattern>/forward</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>sql1</servlet-name>
+        <servlet-class>org.ziyServlet.web.sql.JdbcDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sql1</servlet-name>
+        <url-pattern>/sql1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>session1</servlet-name>
+        <servlet-class>org.ziyServlet.web.session.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>session1</servlet-name>
+        <url-pattern>/s1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>session2</servlet-name>
+        <servlet-class>org.ziyServlet.web.session.RedictLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>session2</servlet-name>
+        <url-pattern>/s2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>e1</servlet-name>
+        <servlet-class>org.ziyServlet.web.exception.Declarative</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>e1</servlet-name>
+        <url-pattern>/e1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>e1hander</servlet-name>
+        <servlet-class>org.ziyServlet.web.exception.DeclarativeExceptionHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>e1hander</servlet-name>
+        <url-pattern>/e1hander</url-pattern>
+    </servlet-mapping>
+    <!--声明式异常处理-->
+    <error-page>
+        <exception-type>java.io.FileNotFoundException</exception-type>
+        <location>/e1hander</location>
+    </error-page>
+</web-app>

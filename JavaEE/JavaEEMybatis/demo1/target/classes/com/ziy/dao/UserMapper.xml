@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<mapper namespace="com.ziy.dao.IUserDao">
+    <select id="findAll" resultType="com.ziy.dao.UserMapper">
+        select * from person
+    </select>
+
+<!--    <resultMap id="com.ziy.UserMapper" type="myMap">-->
+<!--        <result column="id" property="id"/>-->
+<!--        <result column="username" property="userName"/>-->
+<!--        <result column="userpassword" property="password"/>-->
+<!--        <result column="address" property="address"/>-->
+<!--    </resultMap>-->
+</mapper>

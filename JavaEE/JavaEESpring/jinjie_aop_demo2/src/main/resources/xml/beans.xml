@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd ">
+    <!--切面Bean-->
+    <bean id="after" class="ziy.xml.aspectj.AfterDemo"></bean>
+    <bean id="return" class="ziy.xml.aspectj.AfterReturningDemo"></bean>
+    <bean id="throw" class="ziy.xml.aspectj.AfterThrowingDemo"></bean>
+    <bean id="before" class="ziy.xml.aspectj.BeforeDemo"></bean>
+    <aop:config>
+        <aop:aspect id="aspect1" ref="before">
+            <aop:before method="perCheck" pointcut="execution(* ziy.xml.test.*.*(..))"></aop:before>
+        </aop:aspect>
+    </aop:config>
+
+    <!--定义Bean-->
+    <bean id="a" class="ziy.xml.test.A"></bean>
+</beans>

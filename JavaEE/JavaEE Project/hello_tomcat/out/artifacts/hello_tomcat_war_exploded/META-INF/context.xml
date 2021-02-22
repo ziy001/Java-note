@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource
+            name="jdbc/sqlTest"
+            type="javax.sql.DataSource"
+            auth="Container"
+
+            maxTotal="10"
+            maxIdle="-1"
+            maxWaitMillis="10000"
+
+            username="root"
+            password="ziy001"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/servlet_sql?serverTimezone=UTC&amp;autoReconnect=true"
+    />
+</Context>

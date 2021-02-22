@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache.xsd ">
+    <!--启用缓存-->
+    <cache:annotation-driven></cache:annotation-driven>
+    <!--配置内置缓存-->
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <list>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <property name="name" value="default"></property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean id="s" class="ziy.third.myGenerator"></bean>
+    <bean id="c" class="ziy.own.ConcurrentMapDemo"></bean>
+    <bean id="a" class="ziy.third.TestA"></bean>
+    <bean id="b" class="ziy.four.BTest"></bean>
+    <!--配置第三方Ehcache缓存-->
+</beans>

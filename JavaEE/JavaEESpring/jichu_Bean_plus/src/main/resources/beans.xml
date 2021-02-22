@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="person" class="ziy.beans.service.Person">
+        <property name="age" value="30"></property>
+        <property name="son">
+            <bean class="ziy.beans.service.Son">
+                <property name="age" value="11"></property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="son1" class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+        <!-- 调用person Bean的getSon()方法， 将方法返回值作为son1 Bean的实例 -->
+        <property name="targetBeanName" value="person"></property>
+        <property name="propertyPath" value="son"></property>
+    </bean>
+
+    <bean id="son2" class="ziy.beans.service.Son">
+        <property name="age">
+<!--            <bean class="org.springframework.beans.factory.config.PropertyPathFactoryBean">-->
+<!--                <property name="targetBeanName" value="person"></property>-->
+<!--                <property name="propertyPath" value="son.age"></property>-->
+<!--            </bean>-->
+            <util:property-path path="person.son.age" ></util:property-path>
+        </property>
+    </bean>
+    <bean id="person.son.age" name="son3" class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+    </bean>
+    <!--获取Field值-->
+    <bean id="theArg1" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <!-- setTargetClass -->
+        <property name="targetClass" value="java.sql.Connection"></property>
+        <!-- setTargetField -->
+        <property name="targetField" value="TRANSACTION_SERIALIZABLE"></property>
+    </bean>
+    <bean id="java.sql.Connection.TRANSACTION_SERIALIZABLE" name="theArg2" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"></bean>
+    <!--调用方法-->
+</beans>

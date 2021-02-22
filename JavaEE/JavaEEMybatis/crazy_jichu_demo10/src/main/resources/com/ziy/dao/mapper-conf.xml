@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ziy.dao.UserDao">
+    <resultMap id="mapper" type="usermapper">
+        <id property="id" column="id"></id>
+        <result property="userName" column="username"></result>
+        <result property="userPassword" column="userpassword"></result>
+        <result property="address" column="address"></result>
+    </resultMap>
+    <select id="findAll" resultMap="mapper">
+        select * from person
+    </select>
+</mapper>

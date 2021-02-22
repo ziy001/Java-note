@@ -1,0 +1,37 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置连接属性-->
+    <properties resource="mysqlconf.properties">
+        <property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/>
+
+    </properties>
+<!--    <settings>-->
+<!--        <setting name="localCacheScope" value="STATEMENT"/>-->
+<!--    </settings>-->
+    <typeAliases>
+        <package name="com.ziy.domain"/>
+    </typeAliases>
+
+
+    <environments default="sql">
+        <environment id="sql">
+            <!-- 配置事务 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username:root}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--配置文件位置-->
+    <mappers>
+        <mapper resource="com/ziy/dao/userMapper.xml"></mapper>
+    </mappers>
+</configuration>

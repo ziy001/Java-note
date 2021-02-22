@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 创建Bean -->
+    <bean id="win" class="javax.swing.JFrame">
+        <constructor-arg value="我的窗口"></constructor-arg>
+    </bean>
+    <bean id="jta" class="javax.swing.JTextArea">
+        <constructor-arg value="7"></constructor-arg>
+        <constructor-arg value="14"></constructor-arg>
+    </bean>
+    <bean id="jp" class="javax.swing.JPanel"></bean>
+    <bean id="jb1" class="javax.swing.JButton">
+        <constructor-arg value="确定"></constructor-arg>
+    </bean><bean id="jb2" class="javax.swing.JButton">
+        <constructor-arg value="取消"></constructor-arg>
+    </bean>
+
+    <bean id="add1" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="win"></property>
+        <property name="targetMethod" value="add"></property>
+        <property name="arguments">
+            <bean class="javax.swing.JScrollPane">
+                <constructor-arg ref="jta"></constructor-arg>
+            </bean>
+        </property>
+    </bean>
+    <bean id="add2" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="win"></property>
+        <property name="targetMethod" value="add"></property>
+        <property name="arguments">
+            <list>
+                <ref bean="jp"></ref>
+                <util:constant static-field="java.awt.BorderLayout.SOUTH" id="south"></util:constant>
+            </list>
+        </property>
+    </bean>
+    <bean id="addjb1" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="jp"></property>
+        <property name="targetMethod" value="add"></property>
+        <property name="arguments" ref="jb1"></property>
+    </bean>
+    <bean id="addjb2" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="jp"></property>
+        <property name="targetMethod" value="add"></property>
+        <property name="arguments" ref="jb2"></property>
+    </bean>
+
+    <bean id="set1" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="win"></property>
+        <property name="targetMethod" value="pack"></property>
+    </bean>
+    <bean id="set2" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="win"></property>
+        <property name="targetMethod" value="setVisible"></property>
+        <property name="arguments" value="true"></property>
+    </bean>
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/moduleService.iml" filepath="$PROJECT_DIR$/.idea/moduleService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/org.cimodule/org.cimodule.iml" filepath="$PROJECT_DIR$/src/org.cimodule/org.cimodule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/org.cimodule.basic/org.cimodule.basic.iml" filepath="$PROJECT_DIR$/src/org.cimodule.basic/org.cimodule.basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/org.cimodule.best/org.cimodule.best.iml" filepath="$PROJECT_DIR$/src/org.cimodule.best/org.cimodule.best.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/org.cimodule.senior/org.cimodule.senior.iml" filepath="$PROJECT_DIR$/src/org.cimodule.senior/org.cimodule.senior.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/org.fkmodule/org.fkmodule.iml" filepath="$PROJECT_DIR$/src/org.fkmodule/org.fkmodule.iml" />
+    </modules>
+  </component>
+</project>

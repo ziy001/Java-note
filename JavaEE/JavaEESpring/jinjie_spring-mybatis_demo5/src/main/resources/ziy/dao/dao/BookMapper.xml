@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ziy.dao.dao.BookMapper">
+    <insert id="saveBook">
+        insert into book (book_name, book_author, book_message) values (#{book.bookName}, #{book.bookAuthor}, #{book.bookMessage});
+    </insert>
+    <select id="getBook" resultMap="bookMap">
+        select id, book_name, book_author, book_message from book where id=#{id}
+    </select>
+    <resultMap id="bookMap" type="ziy.dao.domain.Book">
+        <constructor>
+            <idArg column="id" javaType="int"></idArg>
+            <arg column="book_name" javaType="String"></arg>
+            <arg column="book_author" javaType="String"></arg>
+            <arg column="book_message" javaType="String"></arg>
+        </constructor>
+    </resultMap>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--数据库配置数据-->
+<Context>
+    <Resouce
+             name="jdbc/cool"
+             auth="Container"
+             type="javax.sql.DataSource"
+
+             maxActive="100"
+             maxIdle="30"
+             maxWait="10000"
+
+             username="root"
+             password="ziy001"
+             driverClasssName="com.mysql.cj.jdbc.Driver"
+             url="jdbc:mysql://localhost:3306/coolcar?serverTimezone=UTC&amp;autoReconnect=true"
+    />
+</Context>

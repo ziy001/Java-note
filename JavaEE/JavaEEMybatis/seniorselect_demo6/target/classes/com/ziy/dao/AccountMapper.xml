@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ziy.dao.AccountDao">
+    <resultMap id="accountMap" type="account">
+        <id property="id" column="aid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+        <association property="user" javaType="user">
+            <!-- 必须写下面的映射配置，因为程序不知道在这个类中需要映射查询内容中的那些列 -->
+            <id property="id" column="id"></id>
+            <result property="userName" column="username"></result>
+            <result property="birthday" column="birthday"></result>
+            <result property="sex" column="sex"></result>
+            <result property="address" column="address"></result>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="accountMap">
+    SELECT  a.id AS aid, a.uid, a.money, u.*
+    FROM `account` AS a, `user` AS u
+    WHERE a.uid = u.id
+    </select>
+</mapper>

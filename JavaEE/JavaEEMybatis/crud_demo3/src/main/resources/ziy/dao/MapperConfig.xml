@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ziy.dao.IUserDao">
+        <resultMap id="resultMap" type="ziy.domain.User">
+            <!-- 主键 -->
+            <id property="userId" column="id"></id>
+            <!--其余-->
+            <result property="userName" column="username"></result>
+            <result property="password" column="userpassword"></result>
+        </resultMap>
+    <select id="findAll" resultMap="resultMap">
+        select * from person
+    </select>
+</mapper>

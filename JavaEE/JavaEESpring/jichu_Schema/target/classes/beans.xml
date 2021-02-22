@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="props" class="Proproties.PropertiesTest">
+        <property name="order" value="1"></property>
+    </bean>
+    <bean id="p" class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+        <property name="targetBeanName" value="props"></property>
+        <property name="propertyPath" value="order"></property>
+    </bean>
+    <bean id="i1" class="ziy.service.pack.Introduction" p:edu="学习经历如小学"></bean>
+    <bean id="p1" class="ziy.service.pack.Person" c:personName="蒙豪" c:intro-ref="i1">
+    </bean>
+</beans>

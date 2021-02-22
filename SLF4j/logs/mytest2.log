@@ -1,0 +1,8 @@
+2020-12-08 21:01:20.634 【main】 TRACE testLogger -  trace信息 
+2020-12-08 21:01:20.637 【main】 DEBUG testLogger -  debug信息 
+2020-12-08 21:01:20.638 【main】 INFO  testLogger -  info信息 
+2020-12-08 21:01:20.639 【main】 WARN  testLogger -  warn信息 
+2020-12-08 21:01:20.639 【main】 ERROR testLogger -  error信息 
+2020-12-08 21:01:20.640 【main】 DEBUG testLogger -  正在调试 now warn 
+2020-12-08 21:01:48.863 【main】 ERROR testLogger -  error信息 
+2020-12-08 21:02:54.774 【main】 ERROR testLogger -  error信息 
